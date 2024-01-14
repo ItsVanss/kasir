@@ -30,16 +30,8 @@
                         <input type="text" class="form-control" value="{{$barang->stok}}" name="stok">
                     </div>
                     <div class="form-group">
-                        <label for="harga_beli">Harga Beli</label>
-                        <input type="text" class="form-control" value="{{$barang->harga_beli}}" name="harga_beli">
-                    </div>
-                    <div class="form-group">
                         <label for="harga_jual">Harga Jual</label>
                         <input type="text" class="form-control" value="{{$barang->harga_jual}}" name="harga_jual">
-                    </div>
-                    <div class="form-group">
-                        <label for="satuan_id">Satuan</label>
-                        <input type="text" class="form-control" value="{{$barang->satuan_id}}" name="satuan_id">
                     </div>
                     <a href="/barang" class="btn btn-sm btn-warning"><i class="fas fa-caret-left"></i> Kembali</a>
                     <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>

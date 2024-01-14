@@ -35,8 +35,6 @@ class BarangController extends Controller
             $barang->nama = $request->nama;
             $barang->stok = $request->stok;
             $barang->harga_jual = $request->harga_jual;
-            $barang->harga_beli = $request->harga_beli;
-            $barang->satuan_id = $request->satuan_id;
             $barang->save();
        
 
@@ -71,8 +69,6 @@ class BarangController extends Controller
         $barang->nama = $request->nama;
         $barang->stok = $request->stok;
         $barang->harga_jual = $request->harga_jual;
-        $barang->harga_beli = $request->harga_beli;
-        $barang->satuan_id = $request->satuan_id;
         $barang->update();
    
 

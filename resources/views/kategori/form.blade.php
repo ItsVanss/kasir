@@ -12,10 +12,6 @@
                 <form action="/kategori/store" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="kode">Kode</label>
-                        <input type="text" class="form-control" name="kode">
-                    </div>
-                    <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" name="nama">
                     </div>

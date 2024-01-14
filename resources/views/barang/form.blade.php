@@ -11,35 +11,24 @@
             <div class="modal-body">
                 <form action="/barang/store" method="POST">
                     @csrf
-                    <div class="form-group">
-                        <label for="kode">Kode</label>
-                        <input type="text" class="form-control" name="kode">
-                    </div>
-                    <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input type="text" class="form-control" name="nama">
-                    </div>
-                    {{-- <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="foto">Foto</label>
-                            <input type="file" class="form-control" name="foto">
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="kode">Kode</label>
+                            <input type="text" class="form-control" name="kode">
                         </div>
-                    </div> --}}
-                    <div class="form-group">
-                        <label for="stok">Stok</label>
-                        <input type="text" class="form-control" name="stok">
-                    </div>
-                    <div class="form-group">
-                        <label for="harga_beli">Harga Beli</label>
-                        <input type="text" class="form-control" name="harga_beli">
-                    </div>
-                    <div class="form-group">
-                        <label for="harga_jual">Harga Jual</label>
-                        <input type="text" class="form-control" name="harga_jual">
-                    </div>
-                    <div class="form-group">
-                        <label for="satuan_id">Satuan</label>
-                        <input type="text" class="form-control" name="satuan_id">
+                        <div class="form-group col-md-6">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" name="nama">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="stok">Stok</label>
+                            <input type="text" class="form-control" name="stok">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="harga_jual">Harga Jual</label>
+                            <input type="text" class="form-control" name="harga_jual">
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary float-right">Tambah</button>
                 </form>

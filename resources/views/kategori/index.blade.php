@@ -24,7 +24,6 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Kode</th>
                                     <th style="width: 50%">Nama</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -33,7 +32,6 @@
                                 @foreach($kategori as $item)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$item->kode}}</td>
                                     <td>{{$item->nama}}</td>
                                     <td>
                                         <form action="/kategori/{{$item->id}}" id="delete-form">

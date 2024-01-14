@@ -30,7 +30,6 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $kategori = new Kategori;
-        $kategori->kode = $request->kode;
         $kategori->nama = $request->nama;
         $kategori->save();
 
@@ -64,7 +63,6 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $kategori = Kategori::find($id);
-        $kategori->kode = $request->kode;
         $kategori->nama = $request->nama;
         $kategori->update();
 

@@ -18,10 +18,6 @@
                     @method('PUT')
                     @csrf
                     <div class="form-group">
-                        <label for="kode">Kode</label>
-                        <input type="text" class="form-control" value="{{$kategori->kode}}" name="kode" readonly>
-                    </div>
-                    <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" value="{{$kategori->nama}}" name="nama">
                     </div>

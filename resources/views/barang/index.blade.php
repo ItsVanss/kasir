@@ -26,10 +26,8 @@
                                     <th>No.</th>
                                     <th>Kode</th>
                                     <th>Nama</th>
-                                    <th>Gambar</th>
-                                    <th>Harga Beli</th>
+                                    <th>Stok</th>
                                     <th>Harga Jual</th>
-                                    <th>Satuan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -41,8 +39,6 @@
                                     <td>{{$item->nama}}</td>
                                     <td>{{$item->stok}}</td>
                                     <td>{{$item->harga_jual}}</td>
-                                    <td>{{$item->harga_beli}}</td>
-                                    <td>{{$item->satuan_id}}</td>
                                     <td>
                                         <form action="/barang/{{$item->id}}" id="delete-form">
                                             {{-- <a href="/barang/{{$item->id}}/show"
@@ -84,7 +80,7 @@
         const kode = button.getAttribute('id');
         swal({
                 title: 'Apa Anda Yakin ?',
-                text: 'Anda akan menghapus data: "' + kode + '". Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
+                text: 'Anda akan menghapus data "' + kode + '" Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
                 icon: 'warning',
                 buttons: true,
                 dangerMode: true,
