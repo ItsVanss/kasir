@@ -25,6 +25,7 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Kode</th>
+                                    <th>Kategori</th>
                                     <th>Nama</th>
                                     <th>Stok</th>
                                     <th>Harga Jual</th>
@@ -36,6 +37,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$item->kode}}</td>
+                                    <td>{{!empty($item->kategori->nama) ? $item->kategori->nama : 'Data Kategori telah Dihapus'}}</td>
                                     <td>{{$item->nama}}</td>
                                     <td>{{$item->stok}}</td>
                                     <td>{{$item->harga_jual}}</td>

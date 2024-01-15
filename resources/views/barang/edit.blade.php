@@ -22,6 +22,14 @@
                         <input type="text" class="form-control" value="{{$barang->kode}}" name="kode" readonly>
                     </div>
                     <div class="form-group">
+                        <label for="kategori_id">Kategori</label>
+                        <select class="custom-select" name="kategori_id">
+                            @foreach ($kategori as $kategori)
+                            <option value="{{$kategori->id}}">{{$kategori->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" value="{{$barang->nama}}" name="nama">
                     </div>

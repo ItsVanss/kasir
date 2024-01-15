@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use Illuminate\Http\Request;
+use App\Models\Kategori;
 
 class BarangController extends Controller
 {
@@ -13,7 +14,8 @@ class BarangController extends Controller
     public function index()
     {
         $barang = Barang::all();
-        return view('barang.index', compact('barang'));
+        $kategori = Kategori::all();
+        return view('barang.index', compact('barang','kategori'));
     }
 
     /**
@@ -32,6 +34,7 @@ class BarangController extends Controller
         
             $barang = new Barang;
             $barang->kode = $request->kode;
+            $barang->kategori_id = $request->kategori_id;
             $barang->nama = $request->nama;
             $barang->stok = $request->stok;
             $barang->harga_jual = $request->harga_jual;
@@ -55,8 +58,8 @@ class BarangController extends Controller
     public function edit($id)
     {
         $barang = Barang::find($id);
-
-        return view('barang.edit', compact('barang'));
+        $kategori = Kategori::all();
+        return view('barang.edit', compact('barang','kategori'));
     }
 
     /**
@@ -66,6 +69,7 @@ class BarangController extends Controller
     {
         $barang = Barang::find($id);
         $barang->kode = $request->kode;
+        $barang->kategori_id = $request->kategori_id;
         $barang->nama = $request->nama;
         $barang->stok = $request->stok;
         $barang->harga_jual = $request->harga_jual;
