@@ -16,6 +16,7 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-list"></i><span>Menu</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="/kategori">Kategori</a></li>
+                    <li><a class="nav-link" href="/penerbit">Penerbit</a></li>
                     <li><a class="nav-link" href="/barang">Barang</a></li>
                 </ul>
             </li>

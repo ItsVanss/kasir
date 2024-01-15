@@ -27,6 +27,8 @@
                                     <th>Kode</th>
                                     <th>Kategori</th>
                                     <th>Nama</th>
+                                    <th>Penerbit</th>
+                                    <th>Pengarang</th>
                                     <th>Stok</th>
                                     <th>Harga Jual</th>
                                     <th>Aksi</th>
@@ -39,6 +41,8 @@
                                     <td>{{$item->kode}}</td>
                                     <td>{{!empty($item->kategori->nama) ? $item->kategori->nama : 'Data Kategori telah Dihapus'}}</td>
                                     <td>{{$item->nama}}</td>
+                                    <td>{{!empty($item->penerbit->nama) ? $item->penerbit->nama : 'Data Kategori telah Dihapus'}}</td>
+                                    <td>{{$item->pengarang}}</td>
                                     <td>{{$item->stok}}</td>
                                     <td>{{$item->harga_jual}}</td>
                                     <td>
@@ -82,7 +86,7 @@
         const kode = button.getAttribute('id');
         swal({
                 title: 'Apa Anda Yakin ?',
-                text: 'Anda akan menghapus data "' + kode + '" Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
+                text: 'Anda akan menghapus data "' + nama + '" Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
                 icon: 'warning',
                 buttons: true,
                 dangerMode: true,

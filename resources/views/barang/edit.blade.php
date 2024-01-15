@@ -34,12 +34,24 @@
                         <input type="text" class="form-control" value="{{$barang->nama}}" name="nama">
                     </div>
                     <div class="form-group">
+                        <label for="penerbit_id">Penerbit</label>
+                        <select class="custom-select" name="penerbit_id">
+                            @foreach ($penerbit as $penerbit)
+                            <option value="{{$penerbit->id}}">{{$penerbit->nama}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pengarang">Pengarang</label>
+                        <input type="text" class="form-control" value="{{$barang->pengarang}}" name="pengarang">
+                    </div>
+                    <div class="form-group">
                         <label for="stok">Stok</label>
-                        <input type="text" class="form-control" value="{{$barang->stok}}" name="stok">
+                        <input type="number" class="form-control" value="{{$barang->stok}}" name="stok">
                     </div>
                     <div class="form-group">
                         <label for="harga_jual">Harga Jual</label>
-                        <input type="text" class="form-control" value="{{$barang->harga_jual}}" name="harga_jual">
+                        <input type="number" class="form-control" value="{{$barang->harga_jual}}" name="harga_jual">
                     </div>
                     <a href="/barang" class="btn btn-sm btn-warning"><i class="fas fa-caret-left"></i> Kembali</a>
                     <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>

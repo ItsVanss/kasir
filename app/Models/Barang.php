@@ -15,10 +15,17 @@ class Barang extends Model
         return $this->belongsTo(Kategori::class);
     }
 
+    public function penerbit()
+    {
+        return $this->belongsTo(Penerbit::class);
+    }
+
     protected $fillable = [
        'kode',
        'kategori_id',
        'nama',
+       'penerbit_id',
+       'pengarang',
        'stok',
        'harga_jual',
     ];

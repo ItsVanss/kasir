@@ -36,14 +36,31 @@
                             <input type="text" class="form-control" name="nama" required>
                         </div>
 
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="penerbit_id">Penerbit</label>
+                                <select class="custom-select" name="penerbit_id" required>
+                                <option value="" disabled selected>Pilih Penerbit</option> <!--placeholder-->
+                                    @foreach ($penerbit as $penerbit)
+                                    <option value="{{$penerbit->id}}">{{$penerbit->nama}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="pengarang">Pengarang</label>
+                            <input type="text" class="form-control" name="pengarang" required>
+                        </div>
+
                         <div class="form-group col-md-6">
                             <label for="stok">Stok</label>
-                            <input type="text" class="form-control" name="stok" required>
+                            <input type="number" class="form-control" name="stok" required>
                         </div>
 
                         <div class="form-group col-md-6">
                             <label for="harga_jual">Harga Jual</label>
-                            <input type="text" class="form-control" name="harga_jual" required>
+                            <input type="number" class="form-control" name="harga_jual" required>
                         </div>
                     </div>
                     

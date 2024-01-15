@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use App\Models\Kategori;
+use App\Models\Penerbit;
+
 
 class BarangController extends Controller
 {
@@ -15,7 +17,8 @@ class BarangController extends Controller
     {
         $barang = Barang::all();
         $kategori = Kategori::all();
-        return view('barang.index', compact('barang','kategori'));
+        $penerbit = Penerbit::all();
+        return view('barang.index', compact('barang','kategori','penerbit'));
     }
 
     /**
@@ -36,6 +39,8 @@ class BarangController extends Controller
             $barang->kode = $request->kode;
             $barang->kategori_id = $request->kategori_id;
             $barang->nama = $request->nama;
+            $barang->penerbit_id = $request->penerbit_id;
+            $barang->pengarang = $request->pengarang;
             $barang->stok = $request->stok;
             $barang->harga_jual = $request->harga_jual;
             $barang->save();
@@ -59,7 +64,9 @@ class BarangController extends Controller
     {
         $barang = Barang::find($id);
         $kategori = Kategori::all();
-        return view('barang.edit', compact('barang','kategori'));
+        $penerbit = Penerbit::all();
+
+        return view('barang.edit', compact('barang','kategori','penerbit'));
     }
 
     /**
@@ -71,6 +78,8 @@ class BarangController extends Controller
         $barang->kode = $request->kode;
         $barang->kategori_id = $request->kategori_id;
         $barang->nama = $request->nama;
+        $barang->penerbit_id = $request->penerbit_id;
+        $barang->pengarang = $request->pengarang;
         $barang->stok = $request->stok;
         $barang->harga_jual = $request->harga_jual;
         $barang->update();

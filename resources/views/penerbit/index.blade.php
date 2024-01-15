@@ -1,11 +1,11 @@
 @extends('layout.app')
 
-@section('title', 'Kasir - Kategori')
+@section('title', 'Kasir - Penerbit')
 
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Kategori</h1>
+        <h1>Penerbit</h1>
     </div>
 
     <div class="section-body">
@@ -13,7 +13,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Data Kategori</h4>
+                        <h4>Data Penerbit</h4>
                         <div class="card-header-form">
                             <button type="button" class="btn btn-sm btn-success" data-toggle="modal"
                                 data-target="#form-tambah"><i class="fa fa-plus"></i> Tambah</button>
@@ -29,15 +29,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($kategori as $item)
+                                @foreach($penerbit as $item)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$item->nama}}</td>
                                     <td>
-                                        <form action="/kategori/{{$item->id}}" id="delete-form">
-                                            {{-- <a href="/kategori/{{$item->id}}/show"
+                                        <form action="/penerbit/{{$item->id}}" id="delete-form">
+                                            {{-- <a href="/penerbit/{{$item->id}}/show"
                                                 class="btn btn-sm btn-outline-info"><i class="fa fa-eye"></i> Detail</a> --}}
-                                            <a href="/kategori/{{$item->id}}/edit"
+                                            <a href="/penerbit/{{$item->id}}/edit"
                                                 class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>
                                                 Edit</a>
                                             @csrf
@@ -57,7 +57,7 @@
         </div>
     </div>
 </section>
-@include('kategori.form');
+@include('penerbit.form');
 @endsection
 
 @push('script')
@@ -83,7 +83,7 @@
             if (willDelete) {
               const form = document.getElementById('delete-form');
               // Setelah pengguna mengkonfirmasi penghapusan, Anda bisa mengirim form ke server
-              form.action = '/kategori/' + id; // Ubah aksi form sesuai dengan ID yang sesuai
+              form.action = '/penerbit/' + id; // Ubah aksi form sesuai dengan ID yang sesuai
               form.submit();
             }
         });
