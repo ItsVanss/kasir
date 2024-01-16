@@ -11,7 +11,7 @@
     <div class="section-body">
         <div class="card">
             <div class="card-header">
-                <h4>View Data Barang</h4>
+                <h4>Edit Data Barang</h4>
             </div>
             <div class="card-body">
                 <form action="/barang/{{$barang->id}}" method="POST">
@@ -21,39 +21,53 @@
                         <label for="kode">Kode</label>
                         <input type="text" class="form-control" value="{{$barang->kode}}" name="kode" readonly>
                     </div>
-                    <div class="form-group">
-                        <label for="kategori_id">Kategori</label>
-                        <select class="custom-select" name="kategori_id">
-                            @foreach ($kategori as $kategori)
-                            <option value="{{$kategori->id}}">{{$kategori->nama}}</option>
-                            @endforeach
-                        </select>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="kategori_id">Kategori</label>
+                            <select class="custom-select" name="kategori_id">
+                                @foreach ($kategori as $kategori)
+                                <option value="{{$kategori->id}}">{{$kategori->nama}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" value="{{$barang->nama}}" name="nama">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="nama">Nama</label>
-                        <input type="text" class="form-control" value="{{$barang->nama}}" name="nama">
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="penerbit_id">Penerbit</label>
+                            <select class="custom-select" name="penerbit_id">
+                                @foreach ($penerbit as $penerbit)
+                                <option value="{{$penerbit->id}}">{{$penerbit->nama}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="pengarang">Pengarang</label>
+                            <input type="text" class="form-control" value="{{$barang->pengarang}}" name="pengarang">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="penerbit_id">Penerbit</label>
-                        <select class="custom-select" name="penerbit_id">
-                            @foreach ($penerbit as $penerbit)
-                            <option value="{{$penerbit->id}}">{{$penerbit->nama}}</option>
-                            @endforeach
-                        </select>
+
+                    <div class="row">
+                        <div class="form-group col-md 6">
+                            <label for="stok">Stok</label>
+                            <input type="number" class="form-control" value="{{$barang->stok}}" name="stok">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="harga_jual">Harga Jual</label>
+                            <input type="number" class="form-control" value="{{$barang->harga_jual}}" name="harga_jual">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="pengarang">Pengarang</label>
-                        <input type="text" class="form-control" value="{{$barang->pengarang}}" name="pengarang">
-                    </div>
-                    <div class="form-group">
-                        <label for="stok">Stok</label>
-                        <input type="number" class="form-control" value="{{$barang->stok}}" name="stok">
-                    </div>
-                    <div class="form-group">
-                        <label for="harga_jual">Harga Jual</label>
-                        <input type="number" class="form-control" value="{{$barang->harga_jual}}" name="harga_jual">
-                    </div>
-                    <a href="/barang" class="btn btn-sm btn-warning"><i class="fas fa-caret-left"></i> Kembali</a>
+
+
+                    <a href="/barang" class="btn btn-sm btn-warning">Kembali</a>
                     <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
                 </form>
             </div>

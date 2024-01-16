@@ -43,7 +43,7 @@
                                             @csrf
                                             @method('delete')
                                             <button type="button" class="btn btn-sm btn-danger"
-                                                id="{{$item->kode}}" data-id="{{$item->id}}"
+                                                id="{{$item->nama}}" data-id="{{$item->id}}"
                                                 onclick="confirmDelete(this)"><i class="fa fa-trash"></i> Delete</a>
                                         </form>
                                     </td>
@@ -71,10 +71,10 @@
     
         event.preventDefault()
         const id = button.getAttribute('data-id');
-        const kode = button.getAttribute('id');
+        const nama = button.getAttribute('id');
         swal({
                 title: 'Apa Anda Yakin ?',
-                text: 'Anda Akan Menghapus Data, ' + kode + 'Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
+                text: 'Anda Akan Menghapus Data, "' + nama + '" Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
                 icon: 'warning',
                 buttons: true,
                 dangerMode: true,

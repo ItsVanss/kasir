@@ -11,7 +11,7 @@
     <div class="section-body">
         <div class="card">
             <div class="card-header">
-                <h4>View Data Penerbit</h4>
+                <h4>Edit Data Penerbit</h4>
             </div>
             <div class="card-body">
                 <form action="/penerbit/{{$penerbit->id}}" method="POST">
@@ -21,7 +21,7 @@
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" value="{{$penerbit->nama}}" name="nama">
                     </div>
-                    <a href="/penerbit" class="btn btn-sm btn-warning"><i class="fas fa-caret-left"></i> Kembali</a>
+                    <a href="/penerbit" class="btn btn-sm btn-warning"></i> Kembali</a>
                     <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
                 </form>
             </div>
