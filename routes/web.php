@@ -34,6 +34,8 @@ Route::get('/barang/{id}/edit', [BarangController::class, 'edit']);
 Route::get('/barang/{id}/show', [BarangController::class, 'show']);
 Route::put('/barang/{id}', [BarangController::class, 'update']);
 Route::get('/barang/{id}', [BarangController::class, 'destroy']);
+Route::get('/barang/print/{id}', [BarangController::class, 'print']);
+
 
 Route::get('/penerbit', [PenerbitController::class, 'index']);
 Route::post('/penerbit/store', [PenerbitController::class, 'store']);

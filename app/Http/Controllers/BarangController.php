@@ -6,6 +6,9 @@ use App\Models\Barang;
 use Illuminate\Http\Request;
 use App\Models\Kategori;
 use App\Models\Penerbit;
+use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 
 class BarangController extends Controller
@@ -18,7 +21,21 @@ class BarangController extends Controller
         $barang = Barang::all();
         $kategori = Kategori::all();
         $penerbit = Penerbit::all();
-        return view('barang.index', compact('barang','kategori','penerbit'));
+        $now = Carbon::now();
+        $tahun_bulan = $now->year . $now->month . $now->day;
+        $cek = Barang::count();
+
+        if ($cek == 0) {
+            $urut = 1;
+            $nomor = $tahun_bulan . str_pad($urut, 4, '0', STR_PAD_LEFT);
+        } else {
+            $ambil = Barang::all()->last();
+            $urut = (int)substr($ambil->kode, -4) + 1;
+            $nomor = $tahun_bulan . str_pad($urut, 4, '0', STR_PAD_LEFT);
+        }
+
+        return view('barang.index', compact('barang', 'kategori', 'penerbit', 'nomor'));
+
     }
 
     /**
@@ -85,7 +102,7 @@ class BarangController extends Controller
         $barang->update();
    
 
-        return redirect('barang')->with('sukses', 'Data Berhasil Disimpan');
+        return redirect('barang')->with('sukses', 'Data Berhasil Diupdate');
     }
 
     /**
@@ -97,5 +114,14 @@ class BarangController extends Controller
         $barang->delete();
 
         return redirect('barang')->with('sukses', 'Data berhasil di Hapus');
+    }
+
+    public function print($id)
+    {
+        $barang = Barang::find($id);
+
+        $pdf = Pdf::loadView('barang.print', compact('barang'));
+        $pdf->setPaper('A4');
+        return $pdf->stream();
     }
 }

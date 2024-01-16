@@ -38,25 +38,33 @@
                                 @foreach($barang as $item)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$item->kode}}</td>
-                                    <td>{{!empty($item->kategori->nama) ? $item->kategori->nama : 'Data Kategori telah Dihapus'}}</td>
+                                    <td
+                                        style="text-align: center; display:flex; flex-direction: column; align-items: center;">
+                                        {!! DNS1D::getBarcodeHTML('$'."$item->kode", 'C128', 1, 25)!!}
+                                        <div style="margin-top: 5px;">{{$item->kode}}</div>
+                                    </td>
+                                    <td>{{!empty($item->kategori->nama) ? $item->kategori->nama : 'Data Kategori telah Dihapus'}}
+                                    </td>
                                     <td>{{$item->nama}}</td>
-                                    <td>{{!empty($item->penerbit->nama) ? $item->penerbit->nama : 'Data Kategori telah Dihapus'}}</td>
+                                    <td>{{!empty($item->penerbit->nama) ? $item->penerbit->nama : 'Data Penerbit telah Dihapus'}}
+                                    </td>
                                     <td>{{$item->pengarang}}</td>
                                     <td>{{$item->stok}}</td>
                                     <td>{{$item->harga_jual}}</td>
                                     <td>
                                         <form action="/barang/{{$item->id}}" id="delete-form">
-                                            {{-- <a href="/barang/{{$item->id}}/show"
-                                                class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Detail</a> --}}
-                                            <a href="/barang/{{$item->id}}/edit"
-                                                class="btn btn-sm btn-warning"><i class="fa fa-edit"></i>
+                                            <a href="/barang/print/{{$item->id}}" class="btn btn-sm btn-primary"><i
+                                                    class="fa fa-print"></i> Print</a>
+                                            <!-- {{-- <a href="/barang/{{$item->id}}/show"
+                                            class="btn btn-sm btn-primary"><i class="fa fa-eye"></i> Detail</a> --}} -->
+                                            <a href="/barang/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i
+                                                    class="fa fa-edit"></i>
                                                 Edit</a>
                                             @csrf
                                             @method('delete')
-                                            <button type="button" class="btn btn-sm btn-danger"
-                                                id="{{$item->kode}}" data-id="{{$item->id}}"
-                                                onclick="confirmDelete(this)"><i class="fa fa-trash"></i> Delete</a>
+                                            <button type="button" class="btn btn-sm btn-danger" id="{{$item->kode}}"
+                                                data-id="{{$item->id}}" onclick="confirmDelete(this)"><i
+                                                    class="fa fa-trash"></i> Delete</a>
                                         </form>
                                     </td>
                                 </tr>
@@ -78,27 +86,29 @@
         $('#table').DataTable();
     });
 
-    var data_anggota = $(this).attr('data-id')
+    var data_barang = $(this).attr('data-id')
+
     function confirmDelete(button) {
-    
+
         event.preventDefault()
         const id = button.getAttribute('data-id');
-        const kode = button.getAttribute('id');
+        const nama = button.getAttribute('id');
         swal({
                 title: 'Apa Anda Yakin ?',
-                text: 'Anda akan menghapus data "' + nama + '" Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
+                text: 'Anda Akan Menghapus Data ' + nama +
+                    ' Ketika Anda tekan OK, maka data tidak dapat dikembalikan !',
                 icon: 'warning',
                 buttons: true,
                 dangerMode: true,
             })
-        .then((willDelete) => {
-            if (willDelete) {
-              const form = document.getElementById('delete-form');
-              // Setelah pengguna mengkonfirmasi penghapusan, Anda bisa mengirim form ke server
-              form.action = '/barang/' + id; // Ubah aksi form sesuai dengan ID yang sesuai
-              form.submit();
-            }
-        });
+            .then((willDelete) => {
+                if (willDelete) {
+                    const form = document.getElementById('delete-form');
+                    // Setelah pengguna mengkonfirmasi penghapusan, Anda bisa mengirim form ke server
+                    form.action = '/barang/' + id; // Ubah aksi form sesuai dengan ID yang sesuai
+                    form.submit();
+                }
+            });
     }
 </script>
 @endpush

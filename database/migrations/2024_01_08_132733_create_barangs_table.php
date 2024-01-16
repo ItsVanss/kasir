@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('penerbit_id');
             $table->string('pengarang');
             $table->integer('stok');
-            $table->float('harga_jual');
+            $table->string('harga_jual');
             $table->timestamps();
         });
     }
