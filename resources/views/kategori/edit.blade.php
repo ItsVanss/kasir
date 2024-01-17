@@ -19,7 +19,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control" value="{{$kategori->nama}}" name="nama">
+                        <input type="text" class="form-control" value="{{$kategori->nama}}" name="nama" required>
                     </div>
                     <a href="/kategori" class="btn btn-sm btn-warning"></i> Kembali</a>
                     <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
